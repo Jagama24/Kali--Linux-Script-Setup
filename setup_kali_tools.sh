@@ -2,6 +2,20 @@
 echo "updating and upgrading system..."
 sudo apt update && sudo apt full-upgrade -y
 
+#Install zsh if not installed 
+echo "Installing zsh..."
+sudo apt install zsh -y
+
+#Download and set up  .zshrc
+echo "Configuring zsh...."
+wget -O ~/zshrc https://raw.githubusercontent.com/bneg/CIS450/main/.zshrc
+mv ~/zshrc ~/.zshrc
+
+#Create requiered directories
+echo"Creating directory structure..."
+mkdir -p ~/CIS/Artifacts ~/CIS/Templates ~/CIS/Tools
+
+#clone repositories 
 echo "Cloning necessary tools..."
 cd ~/CIS/Tools
 git clone https://github.com/danielmiessler/SecLists
